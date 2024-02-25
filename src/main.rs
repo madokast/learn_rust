@@ -1,21 +1,19 @@
 fn main() {
-    let a = {
-        let b = 123;
-        println!("b = {b}"); // 123
-        b + 1
-    };
+let s: String = String::from("hello");
+// let s2: String = s; // move occurs because `s` has type `String`, which does not implement the `Copy` trait. value moved here
+use_s(s);
+println!("{s}"); // value borrowed here after move
+// println!("{s2}");
 
-    println!("a = {a}"); // 124
+   let a = 1;
+   let a2 = a;
 
-    let hr = explicit_return();
-    let hnr = implicit_return();
-    println!("r {hr} {hnr}");
+   println!("{a}");
+   println!("{a2}");
 }
 
-fn explicit_return() -> i32 {
-    return 123;
+fn use_s(s:String) {
+    println!("{s}");
 }
 
-fn implicit_return() -> i32 {
-    123
-}
+
