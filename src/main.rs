@@ -1,26 +1,12 @@
-struct Person {
-    name: String,
-    age: u8,
+struct V2 {a:f64, b:f64}
+
+impl V2 {
+    fn length(&mut self) -> f64 {
+        (self.a * self.a + self.b * self.b).sqrt()
+    }
 }
 
 fn main() {
-    let name = "mdk".to_string();
-    let age : u8 = 10;
-    let p = Person {
-        name, age,
-    };
-
-let p1 = Person {
-    name:"mdk".to_string(),
-    age:15,
-};
-let p2 = Person {
-    name:String::new(),
-    age:0,
-    ..p1
-};
-
-let p1_name = p1.name;
-println!("{p1_name}")
-
+    let mut v = V2 {a:3.,b:4.};
+    println!("length is {:.3}", v.length()); // length is 5.000
 }
