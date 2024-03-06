@@ -1,12 +1,13 @@
+#[derive(Debug)]
 struct V2 {a:f64, b:f64}
 
 impl V2 {
-    fn length(&mut self) -> f64 {
-        (self.a * self.a + self.b * self.b).sqrt()
+    fn new(x:f64, y:f64) -> Self {
+        V2 {a:x, b:y}
     }
 }
 
 fn main() {
-    let mut v = V2 {a:3.,b:4.};
-    println!("length is {:.3}", v.length()); // length is 5.000
+    let v = V2::new(10., 3.14);
+    println!("{:?}", v);
 }
