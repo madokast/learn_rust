@@ -1,16 +1,22 @@
-#[derive(Debug)]
-struct V2 {a:f64, b:f64}
+use std::mem::size_of;
 
-impl V2 {
-    fn new(x:f64, y:f64) -> Self {
-        V2 {a:x, b:y}
-    }
-    fn length(&self) -> f64 {
-        (self.a * self.a + self.b *self.b).sqrt()
-    }
+#[derive(Debug)]
+enum Value {
+    I32(i32),
+    Str(String),
+    OK,
 }
 
 fn main() {
-    let v = V2::new(5., 12.);
-    println!("{:?} length is {}", v, v.length());
+    let i = Value::I32(10);
+    let s = Value::Str("hello".to_string());
+    let o = Value::OK;
+
+    println!("i = {i:?}");
+    println!("s = {s:?}");
+    println!("o = {o:?}");
+
+    println!("size = {}", size_of::<Value>());
+    println!("size = {}", size_of::<i32>());
 }
+
